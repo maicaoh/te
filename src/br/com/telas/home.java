@@ -1,11 +1,12 @@
 package br.com.telas;
 
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Michael
@@ -159,58 +160,67 @@ public class home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadastroCampeonatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroCampeonatoActionPerformed
+
         CadastroDeCampeonato cadCampeonato = new CadastroDeCampeonato();
-        cadCampeonato.setVisible(true);
         desktop.add(cadCampeonato);
+        cadCampeonato.show();
     }//GEN-LAST:event_cadastroCampeonatoActionPerformed
 
     private void consultaEquipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaEquipeActionPerformed
+
         ConsultaEquipe consEqui = new ConsultaEquipe();
-        consEqui.setVisible(true);
         desktop.add(consEqui);
+        consEqui.show();;
     }//GEN-LAST:event_consultaEquipeActionPerformed
 
     private void cadastroEquipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroEquipeActionPerformed
+
         ConsultaCampeonato consultaCamp = new ConsultaCampeonato();
-        consultaCamp.setVisible(true);
         desktop.add(consultaCamp);
+        consultaCamp.show();
     }//GEN-LAST:event_cadastroEquipeActionPerformed
 
     private void cadastarEquipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastarEquipeActionPerformed
+
         CadastroDeEquipes cadEqui = new CadastroDeEquipes();
-        cadEqui.setVisible(true);
         desktop.add(cadEqui);
+        cadEqui.show();
     }//GEN-LAST:event_cadastarEquipeActionPerformed
 
     private void excluirCampeonatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirCampeonatoActionPerformed
+
         ExcluirCampeonato excluCamp = new ExcluirCampeonato();
-        excluCamp.setVisible(true);
         desktop.add(excluCamp);
+        excluCamp.show();
     }//GEN-LAST:event_excluirCampeonatoActionPerformed
 
     private void editarCampeonatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarCampeonatoActionPerformed
-        EditarCampeonato  ediCamp = new EditarCampeonato();
-        ediCamp.setVisible(true);
+
+        EditarCampeonato ediCamp = new EditarCampeonato();
         desktop.add(ediCamp);
-        
+        ediCamp.show();
+
     }//GEN-LAST:event_editarCampeonatoActionPerformed
 
     private void classificacaoCampeonatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classificacaoCampeonatoActionPerformed
-       RealizarCampeonato realizar = new RealizarCampeonato();
-       realizar.setVisible(true);
-       desktop.add(realizar);
+
+        RealizarCampeonato realizar = new RealizarCampeonato();
+        desktop.add(realizar);
+        realizar.show();
     }//GEN-LAST:event_classificacaoCampeonatoActionPerformed
 
     private void editarEquipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarEquipeActionPerformed
+
         EditarEquipes edEqui = new EditarEquipes();
-        edEqui.setVisible(true);
         desktop.add(edEqui);
+        edEqui.show();
     }//GEN-LAST:event_editarEquipeActionPerformed
 
     private void excluirEquipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirEquipeActionPerformed
+
         ExcluirEquipe excluEqui = new ExcluirEquipe();
-        excluEqui.setVisible(true);
         desktop.add(excluEqui);
+        excluEqui.show();
     }//GEN-LAST:event_excluirEquipeActionPerformed
 
     /**

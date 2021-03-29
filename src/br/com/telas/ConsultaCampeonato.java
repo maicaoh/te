@@ -11,39 +11,38 @@ package br.com.telas;
  */
 import br.com.controller.CampeonatoController;
 import br.com.bean.Campeonato;
-import java.sql.*;
-import connection.Conexao;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
+
 
 public class ConsultaCampeonato extends javax.swing.JInternalFrame {
 
-    
     /**
      * Creates new form ConsultaCampeonato
      */
     public ConsultaCampeonato() {
         initComponents();
         preencherCbNomeCampeonato();
-      
+
     }
 
     CampeonatoController campControl = new CampeonatoController();
-    public void preencherCbNomeCampeonato(){
-          cbNomeCampeonato.addItem("Selecione");
-        for(String nome : campControl.consultaNomeCampeonato()){
+
+    public void preencherCbNomeCampeonato() {
+        cbNomeCampeonato.addItem("Selecione");
+        for (String nome : campControl.consultaNomeCampeonato()) {
             cbNomeCampeonato.addItem(nome);
         }
     }
-    public void preencherLabelCampeonato(){
-        if(!cbNomeCampeonato.getSelectedItem().toString().equals("Selecione")){
+
+    public void preencherLabelCampeonato() {
+        if (!cbNomeCampeonato.getSelectedItem().toString().equals("Selecione")) {
             Campeonato campeonato = new Campeonato();
             campeonato = campControl.consultaCampControl(cbNomeCampeonato.getSelectedItem().toString());
-            lblPremiacao.setText(String.valueOf(campeonato.getPremiacao()));
+
             lblQtdEquipes.setText(String.valueOf(campeonato.getQtdEquipe()));
-            lblTurno.setText(String.valueOf(campeonato.getTurno()));
+
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,13 +52,9 @@ public class ConsultaCampeonato extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        lblPremiacao = new javax.swing.JLabel();
-        lblTurno = new javax.swing.JLabel();
         lblQtdEquipes = new javax.swing.JLabel();
         btnPesquisar = new javax.swing.JButton();
         cbNomeCampeonato = new javax.swing.JComboBox<>();
@@ -69,26 +64,14 @@ public class ConsultaCampeonato extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setPreferredSize(new java.awt.Dimension(660, 541));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Premiação:");
-
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Numero de Equipes:");
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setText("Turno(s):");
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel1.setText("Consulta de Campeonato");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Nome:");
-
-        lblPremiacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblPremiacao.setText("...");
-
-        lblTurno.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblTurno.setText("...");
 
         lblQtdEquipes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblQtdEquipes.setText("...");
@@ -113,30 +96,21 @@ public class ConsultaCampeonato extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(100, 100, 100)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblQtdEquipes))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cbNomeCampeonato, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnPesquisar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblPremiacao)
-                                .addGap(42, 42, 42)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblTurno))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblQtdEquipes))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(jLabel1)))
+                                .addComponent(btnPesquisar)))))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -151,27 +125,21 @@ public class ConsultaCampeonato extends javax.swing.JInternalFrame {
                     .addComponent(cbNomeCampeonato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(lblPremiacao)
-                    .addComponent(lblTurno))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(lblQtdEquipes))
-                .addGap(323, 323, 323))
+                .addGap(382, 382, 382))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        if(!cbNomeCampeonato.getSelectedItem().toString().equals("Selecione")){
+        if (!cbNomeCampeonato.getSelectedItem().toString().equals("Selecione")) {
             preencherLabelCampeonato();
-        }else{
-            lblPremiacao.setText("...");
+        } else {
+
             lblQtdEquipes.setText("...");
-            lblTurno.setText("...");
+
         }
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
@@ -185,11 +153,7 @@ public class ConsultaCampeonato extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cbNomeCampeonato;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel lblPremiacao;
     private javax.swing.JLabel lblQtdEquipes;
-    private javax.swing.JLabel lblTurno;
     // End of variables declaration//GEN-END:variables
 }

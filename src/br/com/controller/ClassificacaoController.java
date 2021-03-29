@@ -6,7 +6,7 @@
 package br.com.controller;
 
 import br.com.bean.GradeDeTime;
-import br.com.dao.PartidaDAO;
+import br.com.dao.ClassificacaoDAO;
 import java.util.ArrayList;
 
 /**
@@ -14,32 +14,11 @@ import java.util.ArrayList;
  * @author Michael
  */
 public class ClassificacaoController {
-    ClassificacaoController classControl = new ClassificacaoController();
-    public ArrayList<Integer> calssificacaoControl(int idCampeonato){
-        
-        ArrayList<Integer> lista = new ArrayList<Integer>();
-        
-        
-        
-        PartidaDAO partidadao = new PartidaDAO();
-        ArrayList<Integer> partidaInteger= partidadao.Partida(idCampeonato);
-        
-        lista.add(1, 0);
-        lista.add(2, 0);
-        lista.add(3, 0);
-        for(int i = 0; i < partidaInteger.size(); i ++){
-            if(partidaInteger.get(lista.get(1)) < partidaInteger.get(i))
-                lista.add(1, i);
-        }
-        for(int i = 0; i < partidaInteger.size()-1; i ++){
-            if(partidaInteger.get(lista.get(2)) < partidaInteger.get(i) && partidaInteger.get(i) != partidaInteger.get(lista.get(1)))
-                lista.add(1, i);
-        }
-        for(int i = 0; i < partidaInteger.size()-1; i ++){
-            if(partidaInteger.get(lista.get(3)) < partidaInteger.get(i) && partidaInteger.get(i) != partidaInteger.get(lista.get(1)) && partidaInteger.get(i) != partidaInteger.get(lista.get(2)))
-                lista.add(1, i);
-        }
-        
-        return lista;
-    } 
+
+    public ArrayList<GradeDeTime> gerarClassificacaoController(int idCampeonato) {
+        ClassificacaoDAO classificacaoDAO = new ClassificacaoDAO();
+        return classificacaoDAO.gerarClassificacao(idCampeonato);
+
+    }
+
 }

@@ -1,7 +1,7 @@
-
 package br.com.bean;
 
 public class Partida {
+
     private int idPartida;
     private int gol_casa;
     private int gol_fora;
@@ -59,6 +59,5 @@ public class Partida {
     public void setIdTimeFora(int idTimeFora) {
         this.idTimeFora = idTimeFora;
     }
-    
-    
+
 }

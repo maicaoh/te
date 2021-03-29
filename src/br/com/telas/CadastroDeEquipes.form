@@ -58,7 +58,7 @@
                       <Component id="txtNome" min="-2" pref="355" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="127" pref="124" max="32767" attributes="0"/>
+              <EmptySpace min="127" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>

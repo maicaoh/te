@@ -5,13 +5,13 @@
  */
 package br.com.dao;
 
-import br.com.bean.Campeonato;
-import br.com.bean.Equipe;
+
 import br.com.bean.GradeDeTime;
 import br.com.bean.Partida;
 import connection.Conexao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,33 +19,36 @@ import javax.swing.JOptionPane;
  * @author Michael
  */
 public class ClassificacaoDAO {
-    
-    
-     PreparedStatement pst = null;
-        ResultSet rs = null;
-        Partida partida = new Partida();
-    
-    
-    
-    
-    
-    public GradeDeTime pontuacao(int idCampeonato, int idTime){
-        String sql_consulta_geral = "call pontuacao(?,?)";
-        Equipe equipe = new Equipe();
-        GradeDeTime classificacao = new GradeDeTime();
-        Campeonato campeonato = new Campeonato();
-        try{
+
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    Partida partida = new Partida();
+
+    public ArrayList<GradeDeTime> gerarClassificacao(int idCampeonato) {
+        String sql_consulta_geral = "call classificacao(?)";
+
+        ArrayList<GradeDeTime> gradeTime = new ArrayList<GradeDeTime>();
+        try {
             pst = Conexao.getConexao().prepareStatement(sql_consulta_geral);
-            pst.setInt(1, campeonato.getIdCampeonato());
-            pst.setInt(1, equipe.getId());
+            pst.setInt(1, idCampeonato);
             rs = pst.executeQuery();
-            while(rs.next()){
-               classificacao.setPontos(rs.getInt("Total"));
-               classificacao.setEquipe(rs.getString("Equipe"));
+
+            while (rs.next()) {
+                GradeDeTime grade = new GradeDeTime();
+                grade.setEquipe(rs.getString("nome_equipe"));
+                grade.setPontos(rs.getInt("pontos"));
+                grade.setVitoria(rs.getInt("vitoria"));
+                grade.setEmpate(rs.getInt("empate"));
+                grade.setDerrota(rs.getInt("derrota"));
+                gradeTime.add(grade);
+
             }
-        }catch(Exception e){
-             JOptionPane.showMessageDialog(null, e);
+            Conexao.getConexao().close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
-        return classificacao;
+
+        return gradeTime;
     }
+
 }

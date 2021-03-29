@@ -6,10 +6,6 @@
 package br.com.telas;
 
 import br.com.bean.Campeonato;
-import connection.Conexao;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import br.com.controller.CampeonatoController;
 
@@ -18,37 +14,35 @@ import br.com.controller.CampeonatoController;
  * @author Michael
  */
 public class EditarCampeonato extends javax.swing.JInternalFrame {
+
     CampeonatoController campControl = new CampeonatoController();
     Campeonato campeonato = new Campeonato();
+
     /**
      * Creates new form EditarCampeonato
      */
     public EditarCampeonato() {
         initComponents();
         preencherCbNomeCampeonato();
-        
-    }
-  
 
-    public void preencherCbNomeCampeonato(){
+    }
+
+    public void preencherCbNomeCampeonato() {
         cbNomeCampeonato.removeAllItems();
         cbNomeCampeonato.addItem("Selecione");
-        for(String nome : campControl.consultaNomeCampeonato()){
+        for (String nome : campControl.consultaNomeCampeonato()) {
             cbNomeCampeonato.addItem(nome);
         }
     }
-    public void preencherLabels(String nome){
+
+    public void preencherLabels(String nome) {
         campeonato = campControl.consultaCampControl(nome);
         txtNome.setText(campeonato.getNome());
-        txtPremiacao.setText(String.valueOf(campeonato.getPremiacao()));
+
         jbNumeroDeEquipes.getModel().setSelectedItem(campeonato.getQtdEquipe());
-        jbTurno.getModel().setSelectedItem(campeonato.getTurno());
-        
+
     }
 
-    
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,15 +52,11 @@ public class EditarCampeonato extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtPremiacao = new javax.swing.JTextField();
         jbNumeroDeEquipes = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
         btnConfirmar = new javax.swing.JButton();
         btnLimparCampos = new javax.swing.JButton();
-        jbTurno = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -79,16 +69,10 @@ public class EditarCampeonato extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setPreferredSize(new java.awt.Dimension(660, 541));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Premicação:");
-
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Numero de Equipes:");
 
         jbNumeroDeEquipes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40" }));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setText("Turno(s):");
 
         btnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/icons/aprovado.png"))); // NOI18N
         btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -103,8 +87,6 @@ public class EditarCampeonato extends javax.swing.JInternalFrame {
                 btnLimparCamposActionPerformed(evt);
             }
         });
-
-        jbTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2" }));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel1.setText("Editar de Campeonato");
@@ -136,26 +118,9 @@ public class EditarCampeonato extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(98, 98, 98)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnLimparCampos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnConfirmar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jbNumeroDeEquipes, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtPremiacao, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jbTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(btnLimparCampos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnConfirmar))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(103, 103, 103)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,17 +128,23 @@ public class EditarCampeonato extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbNomeCampeonato, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnPesquisar)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel1)
-                                .addGap(21, 21, 21)))))
+                                .addGap(21, 21, 21))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jbNumeroDeEquipes, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cbNomeCampeonato, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnPesquisar)))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap(125, Short.MAX_VALUE))
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
@@ -187,26 +158,19 @@ public class EditarCampeonato extends javax.swing.JInternalFrame {
                     .addComponent(jLabel6)
                     .addComponent(cbNomeCampeonato)
                     .addComponent(btnPesquisar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtNome))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jbNumeroDeEquipes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(91, 91, 91)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtPremiacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(jbTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jbNumeroDeEquipes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51)
-                        .addComponent(btnLimparCampos))
+                    .addComponent(btnLimparCampos)
                     .addComponent(btnConfirmar))
                 .addGap(114, 114, 114))
         );
@@ -219,32 +183,29 @@ public class EditarCampeonato extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cbNomeCampeonatoActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        if(!cbNomeCampeonato.getSelectedItem().toString().equals("Selecione")){
+        if (!cbNomeCampeonato.getSelectedItem().toString().equals("Selecione")) {
             preencherLabels(cbNomeCampeonato.getSelectedItem().toString());
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Selecione um Iten Válido!");
         }
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparCamposActionPerformed
         txtNome.setText("");
-        txtPremiacao.setText("");
+
     }//GEN-LAST:event_btnLimparCamposActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        if(!cbNomeCampeonato.getSelectedItem().toString().equals("Selecione")){
-        campeonato.setNome(txtNome.getText());
-        campeonato.setPremiacao(Double.parseDouble(txtPremiacao.getText()));
-        campeonato.setQtdEquipe(Integer.parseInt(jbNumeroDeEquipes.getSelectedItem().toString()));
-        campeonato.setTurno(Integer.parseInt(jbTurno.getSelectedItem().toString()));
-        campControl.atualizarCampController(campeonato);
-        JOptionPane.showMessageDialog(this, "Atualizado com Sucesso!");
-        
-        preencherCbNomeCampeonato();
-        txtNome.setText("");
-        txtPremiacao.setText("");
-       
-        }else{
+        if (!cbNomeCampeonato.getSelectedItem().toString().equals("Selecione")) {
+            campeonato.setNome(txtNome.getText());
+            campeonato.setQtdEquipe(Integer.parseInt(jbNumeroDeEquipes.getSelectedItem().toString()));
+            campControl.atualizarCampController(campeonato);
+            JOptionPane.showMessageDialog(this, "Atualizado com Sucesso!");
+
+            preencherCbNomeCampeonato();
+            txtNome.setText("");
+
+        } else {
             JOptionPane.showMessageDialog(null, "Selecione um Item Válido!");
         }
     }//GEN-LAST:event_btnConfirmarActionPerformed
@@ -257,14 +218,10 @@ public class EditarCampeonato extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cbNomeCampeonato;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JComboBox<String> jbNumeroDeEquipes;
-    private javax.swing.JComboBox<String> jbTurno;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtPremiacao;
     // End of variables declaration//GEN-END:variables
 }

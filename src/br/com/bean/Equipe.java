@@ -6,6 +6,7 @@
 package br.com.bean;
 
 public class Equipe {
+
     private int id;
     private String nome;
     private int numeroDeJogadores;
@@ -54,7 +55,5 @@ public class Equipe {
     public void setPatrocinador(String Patrocinador) {
         this.Patrocinador = Patrocinador;
     }
-    
-    
-    
+
 }

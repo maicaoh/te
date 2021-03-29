@@ -5,7 +5,7 @@
  */
 package br.com.telas;
 
-import br.com.controller.CampeonatoController;
+
 import br.com.controller.EquipeController;
 import javax.swing.JOptionPane;
 
@@ -154,11 +154,11 @@ public class CadastroDeEquipes extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         if(txtNome.getText().length()<3){
+        if (txtNome.getText().length() < 3) {
             JOptionPane.showMessageDialog(null, "Digite no mínimo 3 caracteres para o nome!");
-        }else{
+        } else {
             EquipeController equiControl = new EquipeController();
-            equiControl.cadastrar(txtNome.getText(),Integer.parseInt(cbNumeroDeJogadores.getSelectedItem().toString()),txtTecnico.getText(),txtPatrocinador.getText());
+            equiControl.cadastrar(txtNome.getText(), Integer.parseInt(cbNumeroDeJogadores.getSelectedItem().toString()), txtTecnico.getText(), txtPatrocinador.getText());
             JOptionPane.showMessageDialog(this, "Cadastrado com Sucesso!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed

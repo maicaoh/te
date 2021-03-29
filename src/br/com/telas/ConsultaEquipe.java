@@ -5,15 +5,10 @@
  */
 package br.com.telas;
 
-import br.com.bean.Campeonato;
+
 import br.com.bean.Equipe;
-import br.com.controller.CampeonatoController;
+
 import br.com.controller.EquipeController;
-import connection.Conexao;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,18 +22,20 @@ public class ConsultaEquipe extends javax.swing.JInternalFrame {
     public ConsultaEquipe() {
         initComponents();
         preencherCbNomeEquipe();
-        
+
     }
-    
-     EquipeController eqControl = new EquipeController();
-    public void preencherCbNomeEquipe(){
-          cbNomeEquipe.addItem("Selecione");
-        for(String nome : eqControl.consultaNomeEquipe()){
+
+    EquipeController eqControl = new EquipeController();
+
+    public void preencherCbNomeEquipe() {
+        cbNomeEquipe.addItem("Selecione");
+        for (String nome : eqControl.consultaNomeEquipe()) {
             cbNomeEquipe.addItem(nome);
         }
     }
-    public void preencherLabelEquipe(){
-        if(!cbNomeEquipe.getSelectedItem().toString().equals("Selecione")){
+
+    public void preencherLabelEquipe() {
+        if (!cbNomeEquipe.getSelectedItem().toString().equals("Selecione")) {
             Equipe equipe = new Equipe();
             equipe = eqControl.consultaequipeControl(cbNomeEquipe.getSelectedItem().toString());
             lblNumeroDeJogadores.setText(String.valueOf(equipe.getNumeroDeJogadores()));
@@ -46,6 +43,7 @@ public class ConsultaEquipe extends javax.swing.JInternalFrame {
             lblTecnico.setText(String.valueOf(equipe.getTecnico()));
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,8 +63,6 @@ public class ConsultaEquipe extends javax.swing.JInternalFrame {
         lblTecnico = new javax.swing.JLabel();
         cbNomeEquipe = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        lblSigla = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -104,46 +100,34 @@ public class ConsultaEquipe extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("Sigla:");
-
-        lblSigla.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblSigla.setText("...");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(100, 100, 100)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
+                        .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblSigla))
+                        .addComponent(lblNumeroDeJogadores))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblNumeroDeJogadores))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblTecnico))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblPatrocinador))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbNomeEquipe, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(lblTecnico))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPatrocinador))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbNomeEquipe, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
                 .addContainerGap(129, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -168,20 +152,16 @@ public class ConsultaEquipe extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(lblPatrocinador))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(lblSigla))
-                .addGap(314, 314, 314))
+                .addGap(354, 354, 354))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(!cbNomeEquipe.getSelectedItem().toString().equals("Selecione")){
+        if (!cbNomeEquipe.getSelectedItem().toString().equals("Selecione")) {
             preencherLabelEquipe();
-        }else{
+        } else {
             lblNumeroDeJogadores.setText("...");
             lblPatrocinador.setText("...");
             lblTecnico.setText("...");
@@ -197,10 +177,8 @@ public class ConsultaEquipe extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel lblNumeroDeJogadores;
     private javax.swing.JLabel lblPatrocinador;
-    private javax.swing.JLabel lblSigla;
     private javax.swing.JLabel lblTecnico;
     // End of variables declaration//GEN-END:variables
 }

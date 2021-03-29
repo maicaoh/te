@@ -7,7 +7,6 @@ package br.com.telas;
 
 import br.com.bean.Campeonato;
 import br.com.controller.CampeonatoController;
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,33 +22,29 @@ public class ExcluirCampeonato extends javax.swing.JInternalFrame {
         initComponents();
         preencherCbNomeCampeonato();
 
-        
     }
-    
-    
+
     Campeonato campeonato = new Campeonato();
     CampeonatoController campControl = new CampeonatoController();
-    
 
-    
-    
-    public void preencherCbNomeCampeonato(){
+    public void preencherCbNomeCampeonato() {
         cbNomeCampeonato.addItem("Selecione");
-        for(String nome : campControl.consultaNomeCampeonato()){
-            
+        for (String nome : campControl.consultaNomeCampeonato()) {
+
             cbNomeCampeonato.addItem(nome);
         }
         System.out.println(cbNomeCampeonato.getItemCount());
-       
+
     }
-    
-     public void preencherLabelCampeonato(){
+
+    public void preencherLabelCampeonato() {
         campeonato = campControl.consultaCampControl(cbNomeCampeonato.getSelectedItem().toString());
-        lblPremiacao.setText(String.valueOf(campeonato.getPremiacao()));
+
         lblQtdEquipes.setText(String.valueOf(campeonato.getQtdEquipe()));
-        lblTurno.setText(String.valueOf(campeonato.getTurno()));
+
         lblNome.setText(campeonato.getNome());
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -62,17 +57,13 @@ public class ExcluirCampeonato extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         cbNomeCampeonato = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
         btnConfirmar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         lblNome = new javax.swing.JLabel();
-        lblTurno = new javax.swing.JLabel();
         lblQtdEquipes = new javax.swing.JLabel();
-        lblPremiacao = new javax.swing.JLabel();
         btnPesquisar = new javax.swing.JButton();
 
         setClosable(true);
@@ -91,9 +82,6 @@ public class ExcluirCampeonato extends javax.swing.JInternalFrame {
                 cbNomeCampeonatoActionPerformed(evt);
             }
         });
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setText("Turno(s):");
 
         btnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/icons/aprovado.png"))); // NOI18N
         btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -115,20 +103,11 @@ public class ExcluirCampeonato extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Nome:");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Premicação:");
-
         lblNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblNome.setText("...");
 
-        lblTurno.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblTurno.setText("...");
-
         lblQtdEquipes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblQtdEquipes.setText("...");
-
-        lblPremiacao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblPremiacao.setText("...");
 
         btnPesquisar.setText("Pesquisar");
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -145,26 +124,9 @@ public class ExcluirCampeonato extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(98, 98, 98)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnConfirmar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblQtdEquipes))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblPremiacao)
-                                        .addGap(61, 61, 61)
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblTurno)))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnConfirmar))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(103, 103, 103)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,7 +140,11 @@ public class ExcluirCampeonato extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cbNomeCampeonato, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnPesquisar)))))
+                                .addComponent(btnPesquisar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblQtdEquipes)))))
                 .addContainerGap(113, Short.MAX_VALUE))
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
@@ -198,20 +164,13 @@ public class ExcluirCampeonato extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(lblNome))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(lblQtdEquipes))
+                .addGap(100, 100, 100)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(lblTurno)
-                            .addComponent(lblPremiacao))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(lblQtdEquipes))
-                        .addGap(53, 53, 53)
-                        .addComponent(jButton2))
+                    .addComponent(jButton2)
                     .addComponent(btnConfirmar))
                 .addGap(114, 114, 114))
         );
@@ -225,35 +184,34 @@ public class ExcluirCampeonato extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         lblNome.setText("...");
-        lblPremiacao.setText("...");
+
         lblQtdEquipes.setText("...");
-        lblTurno.setText("...");
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        
-        if(!cbNomeCampeonato.getSelectedItem().toString().equals("Selecione")){
+
+        if (!cbNomeCampeonato.getSelectedItem().toString().equals("Selecione")) {
             preencherLabelCampeonato();
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Selecione um item Válido!");
         }
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        if(!cbNomeCampeonato.getSelectedItem().toString().equals("Selecione")){
-        CampeonatoController camprControl = new CampeonatoController();
-        camprControl.excluirCampeonatoControl(campeonato.getIdCampeonato());
-        JOptionPane.showMessageDialog(this, "Excluido com Sucesso!");
-        cbNomeCampeonato.removeItem(campeonato.getNome());
-       
-        lblNome.setText("...");
-        lblPremiacao.setText("...");
-        lblTurno.setText("...");
-        lblQtdEquipes.setText("...");
-        }else{
+        if (!cbNomeCampeonato.getSelectedItem().toString().equals("Selecione")) {
+            CampeonatoController camprControl = new CampeonatoController();
+            camprControl.excluirCampeonatoControl(campeonato.getIdCampeonato());
+            JOptionPane.showMessageDialog(this, "Excluido com Sucesso!");
+            cbNomeCampeonato.removeItem(campeonato.getNome());
+
+            lblNome.setText("...");
+
+            lblQtdEquipes.setText("...");
+        } else {
             JOptionPane.showMessageDialog(null, "Selecione um Item Válido!");
         }
-        
+
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
 
@@ -264,14 +222,10 @@ public class ExcluirCampeonato extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblNome;
-    private javax.swing.JLabel lblPremiacao;
     private javax.swing.JLabel lblQtdEquipes;
-    private javax.swing.JLabel lblTurno;
     // End of variables declaration//GEN-END:variables
 }

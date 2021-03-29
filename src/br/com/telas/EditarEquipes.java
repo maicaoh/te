@@ -5,14 +5,9 @@
  */
 package br.com.telas;
 
-import br.com.bean.Campeonato;
+
 import br.com.bean.Equipe;
-import br.com.controller.CampeonatoController;
 import br.com.controller.EquipeController;
-import connection.Conexao;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,40 +15,36 @@ import javax.swing.JOptionPane;
  * @author Michael
  */
 public class EditarEquipes extends javax.swing.JInternalFrame {
-  
+
     /**
      * Creates new form EditarEquipes
      */
     public EditarEquipes() {
         initComponents();
-        
+
         preencherCbNomeEquipe();
     }
-   
+
     EquipeController equiControl = new EquipeController();
     Equipe equipe = new Equipe();
-   
- 
-  
-    public void preencherCbNomeEquipe(){
+
+    public void preencherCbNomeEquipe() {
         cbNomeEquipe.removeAllItems();
         cbNomeEquipe.addItem("Selecione");
-        for(String nome : equiControl.consultaNomeEquipe()){
+        for (String nome : equiControl.consultaNomeEquipe()) {
             cbNomeEquipe.addItem(nome);
         }
     }
-    public void preencherLabels(String nome){
+
+    public void preencherLabels(String nome) {
         equipe = equiControl.consultaequipeControl(nome);
         txtNome.setText(equipe.getNome());
         txtPatrocinador.setText(equipe.getPatrocinador());
         jbNumeroDeJogadores.getModel().setSelectedItem(equipe.getNumeroDeJogadores());
         txtTecnico.setText(equipe.getTecnico());
-        
+
     }
-    
-    
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -224,28 +215,28 @@ public class EditarEquipes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void pesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarActionPerformed
-        if(!cbNomeEquipe.getSelectedItem().toString().equals("Selecione")){
+        if (!cbNomeEquipe.getSelectedItem().toString().equals("Selecione")) {
             preencherLabels(cbNomeEquipe.getSelectedItem().toString());
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Selecione um Iten Válido!");
         }
     }//GEN-LAST:event_pesquisarActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
-        if(!cbNomeEquipe.getSelectedItem().toString().equals("Selecione")){
-        equipe.setNome(txtNome.getText());
-        equipe.setNumeroDeJogadores(Integer.parseInt(jbNumeroDeJogadores.getSelectedItem().toString()));
-        equipe.setPatrocinador(txtPatrocinador.getText());
-        equipe.setTecnico(txtTecnico.getText());
-        equiControl.atualizareqController(equipe);
-        JOptionPane.showMessageDialog(this, "Atualizado com Sucesso!");
-        
-        preencherCbNomeEquipe();
-        txtNome.setText("");
-        txtPatrocinador.setText("");
-        txtTecnico.setText("");
-       
-        }else{
+        if (!cbNomeEquipe.getSelectedItem().toString().equals("Selecione")) {
+            equipe.setNome(txtNome.getText());
+            equipe.setNumeroDeJogadores(Integer.parseInt(jbNumeroDeJogadores.getSelectedItem().toString()));
+            equipe.setPatrocinador(txtPatrocinador.getText());
+            equipe.setTecnico(txtTecnico.getText());
+            equiControl.atualizareqController(equipe);
+            JOptionPane.showMessageDialog(this, "Atualizado com Sucesso!");
+
+            preencherCbNomeEquipe();
+            txtNome.setText("");
+            txtPatrocinador.setText("");
+            txtTecnico.setText("");
+
+        } else {
             JOptionPane.showMessageDialog(null, "Selecione um Item Válido!");
         }
     }//GEN-LAST:event_btnConfirmarActionPerformed
